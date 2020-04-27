@@ -1,4 +1,4 @@
-package com.example.pointcalculator;
+package com.pointcalculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
