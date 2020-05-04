@@ -16,14 +16,14 @@ public class OrderServiceImpl {
 	private OrderRepository orderRepository;
 
 	@Autowired
-	private CustomerRewardService customerRewardService;
+	private CustomerRewardServiceImpl customerRewardServiceimpl;
 		
 	@Transactional
 	public void saveOrder(OrderDTO orderDTO) {
 		try {
 			Order order = convertToOrderModel(orderDTO);
 			orderRepository.save(order);
-			customerRewardService.calculatePointsAndSave(orderDTO);
+			customerRewardServiceimpl.calculatePointsAndSave(orderDTO);
 		} catch(Exception e) {
 			System.out.println("Order failed to save");
 		}

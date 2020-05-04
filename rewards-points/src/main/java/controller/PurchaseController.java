@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dto.OrderDTO;
-import service.OrderService;
+import service.OrderServiceImpl;
 
 @RequestMapping("api/purchase/")
 @RestController
 public class PurchaseController {
 
 	@Autowired
-	private OrderService orderService;
+	private OrderServiceImpl orderServiceimpl;
 	
 	@PostMapping(value = "{orderDTO}")
 	public void saveOrder(@RequestBody OrderDTO orderDTO) {
-		orderService.saveOrder(orderDTO);
+		orderServiceimpl.saveOrder(orderDTO);
 	}
 }

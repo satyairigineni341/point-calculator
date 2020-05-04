@@ -7,24 +7,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import service.RewardService;
+import service.RewardServiceImpl;
 
 @RequestMapping("api/rewards/")
 @RestController
-public class RewardController {
+public class PointsController {
 	
 	@Autowired
-	private RewardService rewardService;
+	private RewardServiceImpl rewardServiceImpl;
 	
 	@GetMapping(value = "all/{endDate}")
 	public double getTotalPointsAwarded(@PathVariable Date endDate) {
-		return rewardService.getAllPointsAwardedByEndDate(endDate);
+		return rewardServiceImpl.getAllPointsAwardedByEndDate(endDate);
 	}
 	
 	@GetMapping(value = "{customerId}/{endDate}")
 	public double getRewardsEarnedByCustomer(@PathVariable long customerId,@PathVariable Date endDate) {
-		return rewardService.getPointsAwardedToCustomer(customerId,endDate);
+		return rewardServiceImpl.getPointsAwardedToCustomer(customerId,endDate);
 	}
 	
 }
